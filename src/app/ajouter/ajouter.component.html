@@ -1,0 +1,62 @@
+<div  [ngSwitch]="role" >
+<ng-container *ngSwitchCase="'admin'">
+<div class="c1">
+    <div class="container " style="background: linear-gradient(0deg, #000, #272727);padding:20px;color:white;border-radius: 30px;">
+        <div class="container">
+        <h1 class="text-center text-primary">{{title|titre}}</h1>
+        <br>
+        <h3 *ngIf="ajoutermessage != ''" class="text-primary">{{ajoutermessage}}</h3>
+        <br>
+        <div class="form-group">
+                <label for="identifiant">Identifiant</label>
+                <input type="text" class="form-control" id="identifiant"  [(ngModel)]="identifiant">
+                <br>
+            
+                <label for="libelle">Libelle</label>
+                <input type="text" class="form-control" id="libelle"   [(ngModel)]="libelle">
+                <br>
+
+                <label for="photo">Photo</label>
+                <input type="text" class="form-control" id="photo"  [(ngModel)]="photo">
+                <br>
+
+                <label for="prix">Prix</label>
+                <input type="number" class="form-control" id="prix"  [(ngModel)]="prix">
+                <br>
+
+                <label for="marque">Marque</label>
+                <input type="text" class="form-control" id="marque"  [(ngModel)]="marque">
+                <br>
+
+
+                <label for="dat">Date de fabrication : </label>
+                <input type="date" class="form-control" id="dat"  [(ngModel)]="date">
+                <br>
+
+                <input type="checkbox" style="width:20px;height:20px;" id="livraison"   [(ngModel)]="livraison"/>
+                <label for="livraison" style="margin-left:10px;height:45px;">Livraison</label>
+                <br>
+            <div class="text-center">
+                <button class="btn btn-primary col-2" (click)="ajouter()">Ajouter</button>
+            </div>
+        </div> 
+    </div>
+
+    </div>
+</div>
+</ng-container>
+<ng-container *ngSwitchCase="'user'">
+    <div class="c1">
+        <div class="container " style="background: linear-gradient(0deg, #000, #272727);padding:20px;color:white;border-radius: 30px;">
+            <h1 class="text-center ">désolé seuls les administrateurs autorisés à ajouter un article .</h1>
+        </div>
+    </div>    
+</ng-container>
+<ng-container *ngSwitchDefault>
+    <div class="c1">
+        <div class="container " style="background: linear-gradient(0deg, #000, #272727);padding:20px;color:white;border-radius: 30px;">
+            <h1 class="text-center ">vous devez d'abord vous connecter.</h1>
+        </div>
+    </div>
+</ng-container>
+</div>

@@ -1,0 +1,50 @@
+<div class="c1">
+<div class="container " style="background: linear-gradient(0deg, #000, #272727);padding:20px;color:white;border-radius: 30px;">
+
+
+<div>
+    <h1 class="text-center text-primary">{{title |titlecase}}</h1> 
+    <br>
+    <div class="form-group">
+                <label for="libel">Libelle d'article</label>
+                <input type="text" class="form-control" id="libel"   [(ngModel)]="libel">
+
+                <label for="prix">Prix d'article</label>
+                <input type="number" class="form-control" id="prix"   [(ngModel)]="prix">
+                 
+    </div>
+    <div class="d-flex justify-content-center">
+    <button class="btn btn-primary" (click)="rechercher()">Recherche</button>
+  </div>
+</div>
+<div *ngIf="look">
+        <hr>
+        <h3>Resultat : </h3>
+        <div *ngIf="Vide(); then affiche else message" ></div>
+            <ng-template #affiche>
+        <div class="row">
+
+                <div class="col col-md-6" *ngFor="let a of resultat;let indice=index" style="margin:2% 0 2% 0">
+                    <div class="card bg-dark" >
+                        <img src="../assets/{{a.photo}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h4 class="card-title">Libellé : {{a.libelle}}</h4>
+                          <p class="card-text">
+                            <span><strong>ID:</strong> {{a.identifiant}}</span><br>
+                            <span><strong>Prix :</strong> {{a.prix | currency:' '}} TND</span>
+                          </p>
+                          <a routerLink="../detail" class="btn btn-primary" (click)="detail(a)">Read More</a>
+                        </div>
+                      </div>
+                    </div> 
+                  </div>
+                </ng-template>
+                <ng-template #message >
+                  
+                    <h1 style="text-align: center;">Aucun article exist avec cette parametre</h1>
+                  
+                </ng-template>
+                  
+    </div>
+  </div>
+</div>

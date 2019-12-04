@@ -1,0 +1,47 @@
+<div  [ngSwitch]="role" style="margin-bottom:2%;">
+    <ng-container *ngSwitchCase="'admin'">
+    <div class="c1">
+        <div class="container " style="background: linear-gradient(0deg, #000, #272727);padding:20px;color:white;border-radius: 30px;">
+            <div class="container">
+            <h1 class="text-center text-primary">{{title|titre}}</h1>
+            <br>
+            <h3 *ngIf="effacermessage != ''" class="text-primary">{{effacermessage}}</h3>
+            <br>
+                <div class="container">
+                    <h2>Saisir l'article a effacer</h2>
+
+                    <div>
+                            <select class="custom-select" required [(ngModel)]="choixID" (change)="update()">
+                              <option *ngFor="let a of articles;let i=index" [value]="i">{{a.identifiant}}</option>
+                            </select>
+                     </div>
+                     <br>
+                     <div class="text-center">
+                        <button class="btn btn-primary col-2" (click)="effacer()">effacer</button>
+                    </div>
+                        
+                </div>
+
+            <div *ngIf="choix != null" class="form-group">
+            </div>
+        </div>
+    
+        </div>
+    </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="'user'">
+        <div class="c1">
+            <div class="container " style="background: linear-gradient(0deg, #000, #272727);padding:20px;color:white;border-radius: 30px;">
+                <h1 class="text-center ">désolé seuls les administrateurs autorisés à effacer les article .</h1>
+            </div>
+        </div>    
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+        <div class="c1">
+            <div class="container " style="background: linear-gradient(0deg, #000, #272727);padding:20px;color:white;border-radius: 30px;">
+                <h1 class="text-center ">vous devez d'abord vous connecter.</h1>
+            </div>
+        </div>
+    </ng-container>
+    </div>
+

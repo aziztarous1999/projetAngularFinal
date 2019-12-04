@@ -1,0 +1,44 @@
+<div class="container-fluid">
+
+  <!-- nav bar -->
+<nav>
+    <ul class="nav nav-tabs " style="margin-bottom:2%">
+        <li class="nav-item d-flex align-items-center ">
+          <h3 class="text-primary">Jullia</h3>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link abord"  routerLink="/panier"><img src="../assets/userimg/cart.png" style="width:33px;height:26px;"/> <span class="bg-primary text-white"style="border-radius: 30px; padding: 2.5px 12px 2.5px 12px;margin-left: 7px;" >{{nb}}</span></a>
+        </li>
+
+
+      <li class="nav-item"> <a class="nav-link abord c1" data-toggle="pill"  role="tab" aria-controls="v-pills-profile" aria-selected="true" routerLink="/catalogue" routerLinkActive=" bg-primary text-white bold" >Catalogue</a></li>
+      <ng-container *ngIf="(role=='admin')">
+      <li class="nav-item"> <a class="nav-link abord c1" data-toggle="pill "  role="tab" aria-controls="v-pills-home" aria-selected="false" routerLink="/ajouter" routerLinkActive=" bg-primary text-white bold">Ajouter un article</a></li>
+      <li class="nav-item"> <a class="nav-link abord c1" data-toggle="pill "  role="tab" aria-controls="v-pills-home" aria-selected="false" routerLink="/modifier" routerLinkActive=" bg-primary text-white bold">modifier un article</a></li>
+      <li class="nav-item"> <a class="nav-link abord c1" data-toggle="pill "  role="tab" aria-controls="v-pills-home" aria-selected="false" routerLink="/effacer" routerLinkActive=" bg-primary text-white bold">effacer un article</a></li>
+      </ng-container>
+      <li class="nav-item"> <a class="nav-link abord c1" data-toggle="pill"  role="tab" aria-controls="v-pills-profile" aria-selected="false" routerLink="/recherche" routerLinkActive=" bg-primary text-white bold">chercher un article</a></li> 
+
+
+      <li class="nav-item" style="position:absolute;right:10px;" >
+        <ng-container  *ngIf="connecte; then yes else no"></ng-container>
+        <ng-template #no>
+          <a  routerLink="/authentification"> <button class="btn btn-primary" style="margin-top:2px;">Authentification</button></a>
+        </ng-template>
+        <ng-template #yes>
+            <img  [src]="image" style="width:50px;height:40px;border-radius: 50%;"/>
+        </ng-template>
+      </li> 
+    </ul>
+  </nav>
+
+
+
+      
+        <div class="container rounded-lg border-gradient">
+      <router-outlet ></router-outlet>
+      </div>
+
+</div>
+

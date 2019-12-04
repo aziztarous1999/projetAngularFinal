@@ -1,0 +1,59 @@
+<div class="c1">
+    <div class="container " style="background: linear-gradient(0deg, #000, #272727);padding:20px;color:white;border-radius: 30px;">
+     
+
+
+        <div class="container animated fadeIn delay-1s" style="text-align: center;width:100%">
+            <div style="width:100%"><h1 style="font-family: 'Calistoga', cursive;">Bienvenue dans Jullia</h1></div>
+            <br>
+            <div class="container"><p style="width:100%;font-size: 24px;font-weight: bold;"><span style="color:#007bff;">Jullia</span> est le premier site de vente en ligne en Tunisie, notre plate-forme permet de 
+              mettre en relation les clients et les vendeurs dans le but de réaliser de très bonnes 
+              affaires tout en bénéficiant de l'expertise Jullia.</p></div>
+            </div>
+
+
+      <hr class="animated fadeIn delay-1s" style="background:white;">
+      <div class="d-flex justify-content-around" style="width:100%">
+        <!-- scroll down effect -->
+        <div class="scrolldown animated fadeIn delay-1s">
+          <span></span>
+          <span></span>
+          <span></span>
+          </div>
+          <div class="scrolldown animated fadeIn delay-1s">
+            <span></span>
+            <span></span>
+            <span></span>
+            </div>
+            <div class="scrolldown animated fadeIn delay-1s">
+              <span></span>
+              <span></span>
+              <span></span>
+              </div>
+
+            
+        </div>
+        <br>
+        <br>
+      <div class="row animated fadeIn delay-1s">
+            <div *ngFor="let a of articles" class="col col-md-4"  style="margin:2% 0 2% 0;">
+              <div class="card h-100" style="background-color: transparent;" >
+                <div style="overflow: hidden;background:white">
+                    <img src="../assets/{{a.photo}}" class="card-img-top" alt="...">
+                  </div>
+                    <div class="card-body bord" >
+                      <h4 class="card-title" >{{a.libelle}}</h4>
+                      <br>
+                      <p class="card-text">
+                        <span><strong>ID:</strong> {{a.identifiant}}</span><br>
+                        <span><strong>Prix :</strong> {{a.prix | currency:' '}} TND</span>
+                      </p>
+                      <br>
+                     <div style="text-align: center;"><a [routerLink]="['/detail/',a.identifiant]" class="btn btn-primary " (click)="detail(a)" >Plus du détail</a></div>
+                    </div>
+                </div>
+                </div> 
+              </div>
+         
+    </div>
+    </div>

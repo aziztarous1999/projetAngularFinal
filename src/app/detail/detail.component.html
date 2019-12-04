@@ -1,0 +1,36 @@
+<div class="c1">
+    <div class="container " style="background: linear-gradient(0deg, #000, #272727);padding:20px;color:white;border-radius: 30px;">
+
+
+          <div class="container"style="margin:4% 0 4% 0">
+            <div style="padding:20px;background:transparent">
+                <div  style="overflow: hidden;float:left;shape-outside: circle();height:300px;width:300px;border-radius: 50%;">
+                <img src="../assets/{{article.photo}}"  style="height:300px;width:300px;border-radius: 50%;padding:15px" alt="...">
+                </div>
+                <div >
+                  <h4 >Libellé : {{article.libelle}}</h4>
+                 <div style="margin:4% 0 4% 0">
+                    <p><strong>ID : </strong> {{article.identifiant}}</p><br>
+                    <p><strong>Prix : </strong> {{article.prix | currency:' '}} TND</p><br>
+                    <p><strong>Marque : </strong>{{article.marque |titlecase}}</p><br>
+                    <p><strong>Livraison gratuite : </strong>{{livrer(article.livraison)}}</p><br>
+                    <p><strong>Date de fabrication : </strong>{{article.date |date}}</p>
+                    <div *ngIf="article.commander; then saisi else start" ></div>
+                    <ng-template #start >
+                            <button class="btn btn-primary col-12" (click)="article.commander=!article.commander">Ajouter au panier</button>
+                        </ng-template>
+                        <ng-template #saisi>
+                            <div class="d-flex justify-content-around">
+                                <button class="btn btn-primary col-2" (click)="releverqt()">-</button>
+                                <strong>{{article.quantite}} dans le panier</strong>
+                                <button class="btn btn-primary col-2" (click)="ajoutqt()">+</button>
+                            </div>
+                            </ng-template>
+                </div>
+                </div>
+              </div>
+            </div> 
+            <div class="d-flex justify-content-center"><a routerLink="/catalogue" class="btn btn-primary" >Tous les articleicle !</a></div>
+    </div>
+    </div>
+

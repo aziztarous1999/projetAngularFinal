@@ -1,0 +1,51 @@
+<div class="c1" style="margin-bottom:2%;">
+<div class="container " style="background: linear-gradient(0deg, #000, #272727);padding:20px;color:white;border-radius: 30px;">
+    <div *ngIf="connecte; then message else formulaire" ></div>
+    <ng-template #formulaire>
+                    <h1 class="text-center text-primary">{{title |titre | titlecase}}</h1>
+                    
+                    <br>
+                    <p style="color:red;">{{messageError}}</p>
+                    <form  #f="ngForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                            <label for="username">Nom d'utilisateur</label>
+                            <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" #uname="ngModel" required pattern="[A-Z][a-z1-9]+">
+                            
+                            <div [hidden]="!uname.errors?.required || uname.pristine"
+                            class="alert alert-danger" style="margin-top: 10px;">
+                            Nom d'utilisateur est un champ obligatoire.
+                            </div>
+                            <div *ngIf="uname.errors?.pattern && uname.dirty"
+                            class="alert alert-danger" style="margin-top: 10px;">
+                            le champ Nom d'utilisateur doit commencer par un majuscule.
+                            </div>
+
+                            <div class="form-group">
+                                    <label for="password">Mot de passe</label>
+                                    <input type="password" class="form-control" name="password" id="password"   [(ngModel)]="password" #passw="ngModel" required minlength="4">
+                                  
+                                    <div [hidden]="!passw.errors?.required || passw.pristine"
+                                    class="alert alert-danger" style="margin-top: 10px;">
+                                    Mot de passe est un champ obligatoire.
+                                    </div>
+                                    <div *ngIf="passw.errors?.minlength && passw.dirty"
+                                    class="alert alert-danger" style="margin-top: 10px;">
+                                    le champ Mot de passe doit composer au moin de 4 chiffre.
+                                    </div>
+
+
+                                  </div> 
+                      </div>
+                    <button class="btn btn-primary" [disabled]="f.invalid">Log In</button>
+                  </form>
+    </ng-template>
+    <ng-template #message>
+        <div class="d-flex justify-content-center ">
+            <img src="../assets/{{app.image}}" style="width:150px;height:150px;border-radius: 10px; border: 2px outset #a98c8c;"/></div> 
+            <br>
+        <h1 style="text-align: center;">bienvenue {{data.username | titlecase }}.</h1>
+    </ng-template>
+   
+</div>
+
+</div>

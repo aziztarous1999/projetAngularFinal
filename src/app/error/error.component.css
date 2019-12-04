@@ -1,0 +1,22 @@
+#d1
+{
+    height: 93.1vh;
+    width: 100vw;
+    position: relative;
+    bottom: 0;
+    left: -128px;
+    margin-top: -27px !important;
+    background:url(../../assets/error2.png);
+    background-attachment:fixed;
+    background-size:100% 100%;
+}
+
+.box
+{
+    position:absolute;
+    background:url(../../assets/error2.png);;
+    background-attachment:fixed;
+    background-size:100% 100%;
+    background-position: 100px;
+    
+}
