@@ -33,7 +33,7 @@
                             <span><strong>ID:</strong> {{a.identifiant}}</span><br>
                             <span><strong>Prix :</strong> {{a.prix | currency:' '}} TND</span>
                           </p>
-                          <a routerLink="../detail" class="btn btn-primary" (click)="detail(a)">Read More</a>
+                          <a routerLink="../detail/{{a.identifiant}}" class="btn btn-primary" (click)="detail(a)">Read More</a>
                         </div>
                       </div>
                     </div> 

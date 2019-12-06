@@ -30,9 +30,10 @@ export class RechercheComponent implements OnInit {
     i:number;
   rechercher(){
     this.look=true;
+    this.resultat=[];
   for( this.i=0;this.i<this.articles.length;this.i++)
   {
-  if(this.articles[this.i].libelle == this.libel && this.articles[this.i].prix <= this.prix){
+  if((this.articles[this.i].libelle.toLowerCase()).includes(this.libel.toLowerCase())  && this.articles[this.i].prix <= this.prix){
     this.resultat.push(this.articles[this.i]);
   }
   }
